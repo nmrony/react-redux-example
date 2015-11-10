@@ -9,7 +9,9 @@
     "test:watch": "npm run test -- --watch"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "keywords": [],
   "author": "Nur Rony <pro.nmrony@gmail.com> (https://nurmrony.wordpress.com/)",
@@ -24,5 +26,8 @@
     "babel-preset-es2015": "^6.1.2",
     "chai": "^3.4.1",
     "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "immutable": "^3.7.5"
   }
 }
