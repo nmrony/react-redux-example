@@ -7,6 +7,9 @@
   "scripts": {
     "test": "$(npm bin)/mocha --compilers js:babel-core/register --recursive"
   },
+  "babel": {
+    "presets": ["es2015"]
+  },
   "keywords": [],
   "author": "Nur Rony <pro.nmrony@gmail.com> (https://nurmrony.wordpress.com/)",
   "license": "ISC",
