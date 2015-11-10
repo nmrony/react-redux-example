@@ -5,7 +5,7 @@
   "description": "My playground of React+Redux duo. Its not a boilerplate at any sense",
   "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/mocha --compilers js:babel-core/register --recursive",
+    "test": "$(npm bin)/mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch"
   },
   "babel": {
