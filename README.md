@@ -1,2 +1,4 @@
-# react-redux-example
-An example app for my react redux playground
+React Redux Playground
+----------------------
+
+An example app for my React Redux playground. NOT a boilerplate
