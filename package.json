@@ -5,6 +5,7 @@
   "description": "My playground of React+Redux duo. Its not a boilerplate at any sense",
   "main": "index.js",
   "scripts": {
+    "start": "$(npm bin)/babel-node index.js",
     "test": "$(npm bin)/mocha --compilers js:babel-core/register --require ./test/test_helpers.js --recursive",
     "test:watch": "npm run test -- --watch"
   },
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "immutable": "^3.7.5",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "socket.io": "^1.3.7"
   }
 }
