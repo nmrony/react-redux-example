@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {List} from 'immutable';
 import ReactTestUtils from 'react-addons-test-utils';
 import Voting from '../../src/components/Voting';
 import {expect} from 'chai';
@@ -62,5 +63,22 @@ describe('Voting', () => {
     const winner = ReactDOM.findDOMNode(component.refs.winner);
     expect(winner).to.be.ok;
     expect(winner.textContent).to.contain('Trainspotting');
+  });
+
+  /////////////////////////////////
+
+  it('does update DOM when prop changes', () => {
+    const pair = List.of('Trainspotting', '28 Days Later');
+    const component = ReactTestUtils.renderIntoDocument(
+      <Voting pair={pair} />
+    );
+
+    let firstButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.textContent).to.equal('Trainspotting');
+
+    const newPair = pair.set(0, 'Sunshine');
+    component.setProps({pair: newPair});
+    firstButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.textContent).to.equal('Sunshine');
   });
 });
