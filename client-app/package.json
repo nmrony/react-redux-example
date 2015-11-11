@@ -1,17 +1,35 @@
 {
   "name": "client-app",
   "version": "1.0.0",
-  "description": "",
+  "private": "true",
+  "description": "Client App for voting server",
   "main": "index.js",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "scripts": {
     "dev": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'"
   },
   "keywords": [],
   "author": "Nur Rony <pro.nmrony@gmail.com> (https://nurmrony.wordpress.com/)",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.1.2",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
+    "chai": "^3.4.1",
+    "chai-immutable": "^1.5.2",
+    "jsdom": "^7.0.2",
+    "mocha": "^2.3.3",
     "webpack": "^1.12.4",
     "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "immutable": "^3.7.5"
   }
 }
