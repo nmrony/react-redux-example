@@ -12,6 +12,8 @@ function getWinners(vote) {
   else                       return [a, b];
 }
 
+export const INITIAL_STATE = Map();
+
 export function setEntries(currentState, entries) {
   return currentState.set('entries', List(entries));
 }
