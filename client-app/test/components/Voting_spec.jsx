@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {List} from 'immutable';
+import {List, fromJS} from 'immutable';
 import ReactTestUtils from 'react-addons-test-utils';
 //import Voting from '../../src/components/Voting';
 import {Voting} from '../../src/components/Voting';
+import reducer from '../../src/reducer';
 import {expect} from 'chai';
 
 
@@ -81,5 +82,30 @@ describe('Voting', () => {
     component.setProps({pair: newPair});
     firstButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Sunshine');
+  });
+
+  it('removes hasVoted on SET_STATE if pair changes', () => {
+    const initialState = fromJS({
+      vote: {
+        pair: ['Trainspotting', '28 Days Later'],
+        tally: {Trainspotting: 1}
+      },
+      hasVoted: 'Trainspotting'
+    });
+    const action = {
+      type: 'SET_STATE',
+      state: {
+        vote: {
+          pair: ['Sunshine', 'Slumdog Millionaire']
+        }
+      }
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      vote: {
+        pair: ['Sunshine', 'Slumdog Millionaire']
+      }
+    }));
   });
 });

@@ -5,7 +5,7 @@ import {List, Map} from 'immutable';
 import {expect} from 'chai';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import Results from '../../src/components/Result';
+import {Results} from '../../src/components/Result';
 
 describe('Result', () => {
   it('renders entries with vote counts or zero', () => {
